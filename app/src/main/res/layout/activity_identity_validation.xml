@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    tools:context="nahdi.ghazi.insat.com.insat_biblio.IdentityValidationActivity">
+
+
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/identity_valid_text"
+        android:textSize="40dp"
+        android:textAlignment="center"
+        android:text="Pour confirmer votre identité, vous devez choisir une photo nette de votre carte d'étudiant.\nSi vos informations seront correctes, votre compte sera validé dans une durée de 5 jours au maximum. (seul les étudiants de L'INSAT) seront accéptés"
+        android:textColor="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/identity_valid_button"
+        android:textSize="28dp"
+        android:textColor="#fff"
+        android:background="@color/colorA400"
+        android:textAllCaps="false"
+        android:text="Choisir une photo"
+        android:layout_marginTop="25dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp" />
+
+<ImageView
+    android:visibility="gone"
+    android:id="@+id/identity_valid_img"
+    android:layout_marginTop="25dp"
+    android:src="@drawable/valid_cercle"
+    android:layout_width="50dp"
+    android:layout_height="50dp" />
+
+</LinearLayout>
+</ScrollView>

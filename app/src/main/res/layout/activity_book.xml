@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="nahdi.ghazi.insat.com.insat_biblio.BookActivity">
+
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <LinearLayout
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:src="@drawable/math"
+                android:id="@+id/book_img"
+                android:layout_width="140dp"
+                android:layout_height="210dp" />
+
+
+            <LinearLayout
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:id="@+id/book_title"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="#000"
+                    android:text="Titre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/book_author"
+                    android:layout_marginTop="9dp"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    android:text="Auteur : "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/book_date"
+                    android:layout_marginTop="6dp"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    android:text="2017-05-12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/book_nbr"
+                    android:layout_marginTop="6dp"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    android:text="228 pages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="26dp"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:text="Description : "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/book_desc"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:text="sjfhlskdjflksdjklsjflksjdlfkjsdlkfjsldkjflksdjflksdjfkjsdlkfjsdkfjlskdjflksdjflksdjkfjsdlkfjsldkjflskdjflksdjflksdjflksdjflksdjflksdjflskdjflksdjfklsdjflksdjfl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:id="@+id/book_valid"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="38dp"
+            android:text="Emprunter le livre"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</ScrollView>

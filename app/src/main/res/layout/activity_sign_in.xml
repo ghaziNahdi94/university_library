@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background1"
+    tools:context="nahdi.ghazi.insat.com.insat_biblio.SignUpActivity"
+    >
+
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent">
+
+<LinearLayout
+    android:layout_weight="1"
+    android:id="@+id/sign_in_layout"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <EditText
+        android:layout_marginTop="22dp"
+        android:singleLine="true"
+        android:textSize="30dp"
+        android:id="@+id/sign_in_email"
+        android:textColorHint="#646464"
+        android:drawableLeft="@drawable/email"
+        android:drawablePadding="10dp"
+        android:paddingLeft="16dp"
+        android:hint="Email"
+        android:background="@drawable/edit_text_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:layout_marginTop="22dp"
+        android:textSize="30dp"
+        android:id="@+id/sign_in_password"
+        android:textColorHint="#646464"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/lock"
+        android:hint="Mot de passe"
+        android:paddingLeft="16dp"
+        android:background="@drawable/edit_text_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:layout_marginTop="22dp"
+        android:textSize="30dp"
+        android:id="@+id/sign_in_password_confirm"
+        android:textColorHint="#646464"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/lock"
+        android:hint="Confirmer mot de passe"
+        android:paddingLeft="16dp"
+        android:background="@drawable/edit_text_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/sign_in_nom"
+        android:singleLine="true"
+        android:layout_marginTop="22dp"
+        android:textSize="30dp"
+        android:textColorHint="#646464"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/user"
+        android:hint="Nom"
+        android:paddingLeft="16dp"
+        android:background="@drawable/edit_text_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:hint="Prénom"
+        android:id="@+id/sign_in_prenom"
+        android:singleLine="true"
+        android:layout_marginTop="22dp"
+        android:textSize="30dp"
+        android:textColorHint="#646464"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/user"
+        android:paddingLeft="16dp"
+        android:background="@drawable/edit_text_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:maxLength="8"
+        android:inputType="number"
+        android:hint="Numéro CIN"
+        android:id="@+id/sign_in_cin"
+        android:singleLine="true"
+        android:layout_marginTop="22dp"
+        android:textSize="30dp"
+        android:textColorHint="#646464"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/idenity"
+        android:paddingLeft="16dp"
+        android:background="@drawable/edit_text_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:maxLength="7"
+        android:inputType="number"
+        android:hint="Numéro carte d'étudiant"
+        android:id="@+id/sign_in_carte_etudiant"
+        android:singleLine="true"
+        android:layout_marginTop="22dp"
+        android:textSize="30dp"
+        android:textColorHint="#646464"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/university"
+        android:paddingLeft="16dp"
+        android:background="@drawable/edit_text_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/sign_in_valid_img"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/valid_cercle"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+    <Button
+        android:id="@+id/sign_in_valid_identity"
+        android:textSize="28dp"
+        android:textColor="#fff"
+        android:background="@color/colorA400"
+        android:textAllCaps="false"
+        android:text="Valider votre identité"
+        android:layout_marginTop="25dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp" />
+
+</LinearLayout>
+
+
+    <Button
+        android:id="@+id/sign_in_valid"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="38dp"
+        android:text="Valider L'inscription"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+
+</LinearLayout>
+
+
+
+
+
+</ScrollView>

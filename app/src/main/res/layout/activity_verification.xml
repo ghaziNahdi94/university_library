@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
+    >
+<LinearLayout
+    android:paddingBottom="16dp"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="nahdi.ghazi.insat.com.insat_biblio.VerificationActivity">
+
+
+
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/verification_text"
+        android:textSize="40dp"
+        android:textAlignment="center"
+        android:text="Veuillez attender jusqu'à la vérification de votre identité par l'administration.\nUne fois términé, une notification vous sera envoyé pour vous donner le résultat et l'accés à votre compte"
+        android:textColor="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/verification_button"
+        android:textSize="28dp"
+        android:textColor="#fff"
+        android:background="@color/colorA400"
+        android:textAllCaps="false"
+        android:text="Retourner"
+        android:layout_marginTop="65dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp" />
+
+
+
+</LinearLayout>
+</ScrollView>
