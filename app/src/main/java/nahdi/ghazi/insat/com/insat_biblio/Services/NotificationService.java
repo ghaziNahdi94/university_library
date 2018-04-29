@@ -1,6 +1,7 @@
 package nahdi.ghazi.insat.com.insat_biblio.Services;
 
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -47,6 +48,11 @@ public class NotificationService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
 
+        final SharedPreferences sp = getApplicationContext().getSharedPreferences("valid", MODE_PRIVATE);
+
+
+        thread = new Thread(new ConnectionVerif());
+        thread.start();
 
         return START_STICKY;
     }
@@ -118,8 +124,10 @@ public class NotificationService extends Service {
 
             Notification notification = mBuilder.build();
 
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-            notification.notify();
+
+            notificationManager.notify(1,notification);
 
         }
 
@@ -157,7 +165,8 @@ public class NotificationService extends Service {
 
 
 
-                        if(userGet.validate == true){
+
+                        if(userGet != null && userGet.validate == true){
 
                             runNotif();
 
@@ -165,6 +174,8 @@ public class NotificationService extends Service {
 
                             editor.putBoolean("validate",true);
                             editor.putString("email","");
+
+                            editor.commit();
 
 
 

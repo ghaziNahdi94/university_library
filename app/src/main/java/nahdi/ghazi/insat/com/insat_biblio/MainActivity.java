@@ -1,5 +1,6 @@
 package nahdi.ghazi.insat.com.insat_biblio;
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -41,6 +42,7 @@ import nahdi.ghazi.insat.com.insat_biblio.MyObjects.User;
 import nahdi.ghazi.insat.com.insat_biblio.MyObjects.UserEmail;
 import nahdi.ghazi.insat.com.insat_biblio.MyObjects.UserEmailPassword;
 import nahdi.ghazi.insat.com.insat_biblio.MyObjects.UserGet;
+import nahdi.ghazi.insat.com.insat_biblio.Services.NotificationService;
 import nahdi.ghazi.insat.com.insat_biblio.WebServices.UserServices;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -104,6 +106,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+
+        //Notif service
+        Intent intent = new Intent(MainActivity.this, NotificationService.class);
+        startService(intent);
 
 
 

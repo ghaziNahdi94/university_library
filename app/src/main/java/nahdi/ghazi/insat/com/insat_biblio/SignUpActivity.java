@@ -243,7 +243,7 @@ public class SignUpActivity extends AppCompatActivity {
                 try {
                     String rep =  response.body().string();
 
-                    if(!rep.equals("nothing"))
+                    if(rep.equals("nothing"))
                         createNewUser(dataCard,emailStr,passworCrypte,nomStr,prenomStr,numCinInt,numCardInt);
                         else
                         Toast.makeText(SignUpActivity.this,"Email déja utilisé !",Toast.LENGTH_SHORT).show();
@@ -468,6 +468,8 @@ public class SignUpActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     Intent intent = new Intent(SignUpActivity.this,VerificationActivity.class);
+                                    finish();
+                                    intent.putExtra("email",emailStr);
                                     startActivity(intent);
                                 }
                             });
@@ -487,6 +489,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     Intent intent = new Intent(SignUpActivity.this,VerificationActivity.class);
                                     finish();
+                                    intent.putExtra("email",emailStr);
                                     startActivity(intent);
                                 }
                             });

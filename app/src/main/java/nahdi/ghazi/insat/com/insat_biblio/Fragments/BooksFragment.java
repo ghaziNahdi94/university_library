@@ -93,6 +93,7 @@ public class BooksFragment extends Fragment {
         cnxVerif = new Thread(new CnxVerif());
 
 
+        getBooks();
 
 
         return view;
@@ -218,6 +219,8 @@ public class BooksFragment extends Fragment {
 
                         if(!lastStateIsCnx) {
 
+                            Log.e("hhhh","1");
+
                         cnxOn.sendEmptyMessage(0);
 
                         getBooks();
@@ -231,7 +234,10 @@ public class BooksFragment extends Fragment {
                     cnxOff.sendEmptyMessage(0);
                     lastStateIsCnx = false;
 
-                }
+                        Log.e("hhhh","2");
+
+
+                    }
 
 
 
