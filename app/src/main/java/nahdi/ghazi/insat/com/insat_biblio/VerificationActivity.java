@@ -47,6 +47,9 @@ public class VerificationActivity extends AppCompatActivity {
 
         String email = getIntent().getStringExtra("email");
 
+
+
+
         SharedPreferences sharedPreferences = this.getSharedPreferences("valid",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("validate",false);

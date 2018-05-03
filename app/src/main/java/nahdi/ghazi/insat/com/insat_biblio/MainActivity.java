@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
     EditText email = null;
     EditText password = null;
     Button login = null;
-    TextView forget = null;
     TextView signin = null;
 
 

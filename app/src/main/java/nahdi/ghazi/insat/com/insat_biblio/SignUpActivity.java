@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -206,10 +205,13 @@ public class SignUpActivity extends AppCompatActivity {
 
              }else{
 
+                 if(progressDialog != null && progressDialog.isShowing())
+                     progressDialog.dismiss();
+
                  AlertDialog.Builder errorDialog = new AlertDialog.Builder(SignUpActivity.this);
 
                  errorDialog.setTitle("Erreur");
-                 errorDialog.setIcon(R.drawable.error);
+                 errorDialog.setIcon(R.drawable.err);
                  errorDialog.setMessage(globalError);
                  errorDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                      @Override
