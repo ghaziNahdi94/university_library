@@ -35,7 +35,7 @@ public class BookAdapter extends RecyclerView.Adapter {
 
 
     Activity activity = null;
-    private String URL = "http://10.0.2.2:8080/books/";
+    private String URL = "https://insat-biblio.herokuapp.com/books/";
 
 
     private ArrayList<Book> books = null;

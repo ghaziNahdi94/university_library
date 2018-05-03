@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     TextView signin = null;
 
 
-    private final String URL = "http://10.0.2.2:8080/";
+    private final String URL = "https://insat-biblio.herokuapp.com/";
 
 
 
@@ -73,6 +73,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        if(restoreUser() != null){
+
+            Intent intent = new Intent(MainActivity.this,MainPrincipalActivity.class);
+            finish();
+            startActivity(intent);
+
+        }
+
+
+
+
         getSupportActionBar().setTitle("Authentifiez vous");
 
 
@@ -80,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.log_in_email);
         password = findViewById(R.id.log_in_password);
         login = findViewById(R.id.log_in_button);
-        forget = findViewById(R.id.log_in_forget);
         signin = findViewById(R.id.log_in_sign_in);
 
 
@@ -88,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
         email.setTypeface(typeface);
         password.setTypeface(typeface);
         login.setTypeface(typeface);
-        forget.setTypeface(typeface);
         signin.setTypeface(typeface);
 
 
@@ -200,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
 
         private void saveUser(UserGet userGet){
 
-            SharedPreferences sp = getPreferences(MODE_PRIVATE);
+            SharedPreferences sp = getSharedPreferences("session",MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();
 
             Gson gson = new Gson();
@@ -218,10 +227,13 @@ public class MainActivity extends AppCompatActivity {
         private UserGet restoreUser(){
 
             Gson gson = new Gson();
-            SharedPreferences sp = getPreferences(MODE_PRIVATE);
+            SharedPreferences sp = getSharedPreferences("session",MODE_PRIVATE);
             String json = sp.getString("user","");
 
+            if(!json.equals(""))
             return gson.fromJson(json,UserGet.class);
+            else
+                return null;
         }
 
 

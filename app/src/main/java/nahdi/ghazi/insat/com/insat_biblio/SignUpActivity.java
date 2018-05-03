@@ -1,5 +1,6 @@
 package nahdi.ghazi.insat.com.insat_biblio;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -39,8 +41,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class SignUpActivity extends AppCompatActivity {
 
 
-    //private final String URL = "https://insat-biblio.herokuapp.com/";
-    private final String URL = "http://10.0.2.2:8080/";
+    private final String URL = "https://insat-biblio.herokuapp.com/";
 
 
 
@@ -61,6 +62,8 @@ public class SignUpActivity extends AppCompatActivity {
     private String globalError = "";
 
 
+
+    private ProgressDialog progressDialog = null;
 
 
     @Override
@@ -177,6 +180,12 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+             progressDialog = new ProgressDialog(SignUpActivity.this);
+             progressDialog.setCancelable(false);
+             progressDialog.setMessage("Loading...");
+             progressDialog.show();
+
+
              globalError = "";
 
              String emailStr = email.getText().toString();
@@ -240,6 +249,9 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
+                if(progressDialog != null && progressDialog.isShowing())
+                    progressDialog.dismiss();
+
                 try {
                     String rep =  response.body().string();
 
@@ -257,7 +269,8 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.e("hhhhh","failure");
+                if(progressDialog != null && progressDialog.isShowing())
+                    progressDialog.dismiss();
             }
         });
 

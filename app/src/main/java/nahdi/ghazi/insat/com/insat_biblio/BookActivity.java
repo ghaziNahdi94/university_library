@@ -3,6 +3,7 @@ package nahdi.ghazi.insat.com.insat_biblio;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -38,6 +39,7 @@ import java.util.concurrent.ExecutionException;
 import io.realm.Realm;
 import nahdi.ghazi.insat.com.insat_biblio.MyObjects.Emprunt;
 import nahdi.ghazi.insat.com.insat_biblio.MyObjects.History;
+import nahdi.ghazi.insat.com.insat_biblio.MyObjects.UserGet;
 import nahdi.ghazi.insat.com.insat_biblio.WebServices.UserServices;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -65,10 +67,12 @@ public class BookActivity extends AppCompatActivity {
     private String url = "";
     private String url_photo = "";
 
-    private final String URL = "http://10.0.2.2:8080/";
+    private final String URL = "https://insat-biblio.herokuapp.com/";
 
     private  String PATH;
 
+
+    private String email = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +82,9 @@ public class BookActivity extends AppCompatActivity {
 
         PATH = getFilesDir()+"/history";
 
+
+        SharedPreferences sharedPreferences = getSharedPreferences("session",MODE_PRIVATE);
+        email = sharedPreferences.getString("email","");
 
         book_img = findViewById(R.id.book_img);
         title = findViewById(R.id.book_title);
@@ -196,7 +203,10 @@ public class BookActivity extends AppCompatActivity {
                         String date1 = e1.getText().toString();
                         String date2 = e2.getText().toString();
 
-                        final Emprunt emprunt = new Emprunt(date1,date2,"ghaziNahdi94@outlook.com",_id);
+
+                        UserGet userGet = restoreUser();
+
+                        final Emprunt emprunt = new Emprunt(date1,date2,userGet.email,_id);
 
 
 
@@ -239,6 +249,19 @@ public class BookActivity extends AppCompatActivity {
         });
 
 
+    }
+
+
+
+
+
+    private UserGet restoreUser(){
+
+        Gson gson = new Gson();
+        SharedPreferences sp = getSharedPreferences("session",MODE_PRIVATE);
+        String json = sp.getString("user","");
+
+        return gson.fromJson(json,UserGet.class);
     }
 
 

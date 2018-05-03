@@ -40,7 +40,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BooksFragment extends Fragment {
 
 
-    private final String URL = "http://10.0.2.2:8080/livres/";
+    private final String URL = "https://insat-biblio.herokuapp.com/livres/";
 
     RecyclerView recyclerView = null;
     LinearLayout noCnx = null;
@@ -190,6 +190,7 @@ public class BooksFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+        if(cnxVerif != null && !cnxVerif.isAlive())
         cnxVerif.start();
 
     }

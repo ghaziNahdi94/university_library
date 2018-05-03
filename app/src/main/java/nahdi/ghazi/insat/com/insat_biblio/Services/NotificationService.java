@@ -6,8 +6,10 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -30,7 +32,7 @@ public class NotificationService extends Service {
 
 
     private Thread thread = null;
-    private final String URL = "http://10.0.2.2:8080/";
+    private final String URL = "https://insat-biblio.herokuapp.com/";
 
 
 
@@ -48,7 +50,6 @@ public class NotificationService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
 
-        final SharedPreferences sp = getApplicationContext().getSharedPreferences("valid", MODE_PRIVATE);
 
 
         thread = new Thread(new ConnectionVerif());
@@ -115,10 +116,16 @@ public class NotificationService extends Service {
         void runNotif(){
 
 
+
+
+            Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+
             NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext())
                     .setSmallIcon(R.drawable.logo_white)
                     .setContentTitle("Vérification de votre compte")
                     .setContentText("Votre compte est vérifié vous pouvez connecter sans probléme")
+                    .setSound(alarmSound)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
 

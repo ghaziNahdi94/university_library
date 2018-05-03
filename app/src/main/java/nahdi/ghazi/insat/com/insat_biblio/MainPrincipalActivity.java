@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -28,6 +30,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.google.gson.Gson;
+
 import java.io.File;
 
 import io.realm.Realm;
@@ -35,6 +39,7 @@ import io.realm.RealmResults;
 import nahdi.ghazi.insat.com.insat_biblio.Fragments.BooksFragment;
 import nahdi.ghazi.insat.com.insat_biblio.Fragments.HistoryFragment;
 import nahdi.ghazi.insat.com.insat_biblio.MyObjects.History;
+import nahdi.ghazi.insat.com.insat_biblio.MyObjects.UserGet;
 
 public class MainPrincipalActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -225,6 +230,14 @@ public class MainPrincipalActivity extends AppCompatActivity
             toolbar_title.setText("Historique");
 
 
+        }else if(id == R.id.nav_decnx){
+
+
+            deleteUser();
+            Intent intent = new Intent(MainPrincipalActivity.this,MainActivity.class);
+            finish();
+            startActivity(intent);
+
         }
 
 
@@ -232,4 +245,31 @@ public class MainPrincipalActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+
+
+    private void deleteUser(){
+
+        SharedPreferences sp = getSharedPreferences("session",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+
+        editor.putString("user","");
+
+        editor.commit();
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
